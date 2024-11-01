@@ -23,14 +23,14 @@ public class Main extends JFrame implements KeyListener {
         Example.setVisible(true);
     }
     @Override
-    public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_RIGHT) { if (Main.coordX<=690)  {Main.coordX+=5;} }
-        if (e.getKeyCode()==KeyEvent.VK_LEFT)  { if (Main.coordX>-10)   {Main.coordX-=5;} }
-        if (e.getKeyCode()==KeyEvent.VK_UP)    { if (Main.coordY>-10)   {Main.coordY-=5;} }
-        if (e.getKeyCode()==KeyEvent.VK_DOWN)  { if (Main.coordY<=345)  {Main.coordY+=5;} }
-    }
+    public void keyReleased(KeyEvent e) { }
     @Override
     public void keyTyped(KeyEvent e) { }
     @Override
-    public void keyPressed(KeyEvent e) {  }
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_RIGHT) {Main.coordX=Main.coordX<=690?Main.coordX+5:-10;}
+        if (e.getKeyCode()==KeyEvent.VK_LEFT) {Main.coordX=Main.coordX>-10?Main.coordX-5:695;}
+        if (e.getKeyCode()==KeyEvent.VK_UP)   {Main.coordY=Main.coordY>-10?Main.coordY-5:350;}
+        if (e.getKeyCode()==KeyEvent.VK_DOWN) {Main.coordY=Main.coordY<=345?Main.coordY+5:-10;}
+    }
 }
